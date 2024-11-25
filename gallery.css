@@ -1,4 +1,20 @@
 /* Gallery Page Specific Styles */
+:root {
+    /* Color Variables */
+    --color-primary: #7B2CBF;
+    --color-secondary: #9D4EDD;
+    --color-accent: #E0AAFF;
+    --color-background: #1A1A1A;
+    --color-text: #FFFFFF;
+    --color-text-light: #B0B0B0;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.3);
+    --color-card: #1A1A1A;
+    --color-border: #7B2CBF;
+    --color-input-bg: #9D4EDD;
+}
+
 .gallery-page {
     padding-top: 80px;
 }
