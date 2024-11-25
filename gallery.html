@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCM Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+</head>
+<body class="light-theme">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">GN</div>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i data-feather="moon"></i>
+            </button>
+            <button class="mobile-menu" aria-label="Menu">
+                <i data-feather="menu"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="#" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="gallery-page">
+        <section class="gallery-header">
+            <div class="container">
+                <h1>Project Gallery</h1>
+                <p class="gallery-description">A showcase of my work in technical communication, UI/UX design, and digital content creation.</p>
+            </div>
+        </section>
+
+        <section class="gallery-filters">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="ui-ux">UI/UX Design</button>
+                    <button class="filter-btn" data-filter="technical">Technical Writing</button>
+                    <button class="filter-btn" data-filter="content">Digital Content</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-grid">
+            <div class="container">
+                <div class="masonry-grid">
+                    <!-- UI/UX Project 1 -->
+                    <div class="gallery-item ui-ux">
+                        <div class="gallery-card">
+                            <div class="gallery-image">
+                                <img src="images/mobile-app.jpg" alt="Mobile App UI Design">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h3>Campus Mobile App</h3>
+                                        <p>UI/UX Design</p>
+                                        <button class="view-project" data-project="project1">
+                                            <i data-feather="eye"></i> View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Writing Project -->
+                    <div class="gallery-item technical">
+                        <div class="gallery-card">
+                            <div class="gallery-image">
+                                <img src="images/technical-writing.jpg" alt="Technical Documentation Portal">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h3>Documentation Portal</h3>
+                                        <p>Technical Writing</p>
+                                        <button class="view-project" data-project="project2">
+                                            <i data-feather="eye"></i> View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Digital Content Project -->
+                    <div class="gallery-item content">
+                        <div class="gallery-card">
+                            <div class="gallery-image">
+                                <img src="images/social-media.jpg" alt="Social Media Campaign">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h3>Tech Event Campaign</h3>
+                                        <p>Digital Content</p>
+                                        <button class="view-project" data-project="project3">
+                                            <i data-feather="eye"></i> View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- UI/UX Project 2 -->
+                    <div class="gallery-item ui-ux">
+                        <div class="gallery-card">
+                            <div class="gallery-image">
+                                <img src="images/web-design.png" alt="Website Redesign">
+                                <div class="overlay">
+                                    <div class="overlay-content">
+                                        <h3>Department Website</h3>
+                                        <p>UI/UX Design</p>
+                                        <button class="view-project" data-project="project4">
+                                            <i data-feather="eye"></i> View Details
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more gallery items as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Modal -->
+        <div class="project-modal" id="projectModal">
+            <div class="modal-content">
+                <button class="close-modal">
+                    <i data-feather="x"></i>
+                </button>
+                <div class="modal-body">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Girl Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+
+        // Project data
+        const projectData = {
+            project1: {
+                title: "Campus Mobile App",
+                category: "UI/UX Design",
+                description: "A comprehensive mobile application designed to enhance student experience on campus. Features include course scheduling, campus navigation, and event notifications.",
+                tools: ["Figma", "Adobe XD", "Protopie"],
+                duration: "3 months",
+                role: "Lead UI/UX Designer",
+                images: ["/api/placeholder/800/600", "/api/placeholder/800/600"]
+            },
+            // Add more project data as needed
+        };
+
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+                
+                // Update active button
+                document.querySelector('.filter-btn.active').classList.remove('active');
+                button.classList.add('active');
+                
+                // Filter items
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal functionality
+        document.querySelectorAll('.view-project').forEach(button => {
+            button.addEventListener('click', () => {
+                const projectId = button.dataset.project;
+                const project = projectData[projectId];
+                
+                if (project) {
+                    const modal = document.getElementById('projectModal');
+                    modal.classList.add('active');
+                    // Populate modal content
+                }
+            });
+        });
+
+        // Close modal
+        document.querySelector('.close-modal').addEventListener('click', () => {
+            document.getElementById('projectModal').classList.remove('active');
+        });
+
+
+
+        // Theme Switching Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    const moonIcon = themeToggle.querySelector('i');
+
+    // Function to set theme
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            moonIcon.setAttribute('data-feather', 'sun');
+        } else {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            moonIcon.setAttribute('data-feather', 'moon');
+        }
+        // Update feather icons
+        feather.replace();
+        
+        // Store theme preference
+        localStorage.setItem('theme', theme);
+        
+        // Dispatch custom event for theme change
+        const event = new CustomEvent('themeChanged', { detail: { theme: theme } });
+        document.dispatchEvent(event);
+    }
+
+    // Function to get system theme preference
+    function getSystemThemePreference() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // Function to initialize theme
+    function initializeTheme() {
+        // Check localStorage first
+        const savedTheme = localStorage.getItem('theme');
+        
+        if (savedTheme) {
+            // Use saved theme preference
+            setTheme(savedTheme);
+        } else {
+            // Use system preference as default
+            const systemTheme = getSystemThemePreference();
+            setTheme(systemTheme);
+        }
+    }
+
+    // Toggle theme when button is clicked
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Only update if user hasn't set a preference
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // Initialize theme on page load
+    initializeTheme();
+
+    // Optional: Add theme transition class after initial load
+    // This prevents transition flash on page load
+    setTimeout(() => {
+        document.documentElement.classList.add('theme-transition');
+    }, 500);
+});
+
+// CSS Variables Update Function (call this when theme changes)
+document.addEventListener('themeChanged', function(e) {
+    const theme = e.detail.theme;
+    const root = document.documentElement;
+
+    if (theme === 'dark') {
+        root.style.setProperty('--color-background', '#1A1A1A');
+        root.style.setProperty('--color-text', '#FFFFFF');
+        root.style.setProperty('--color-text-light', '#B0B0B0');
+        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.2)');
+        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.3)');
+        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.3)');
+    } else {
+        root.style.setProperty('--color-background', '#F8F9FA');
+        root.style.setProperty('--color-text', '#2D2D2D');
+        root.style.setProperty('--color-text-light', '#6C757D');
+        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.05)');
+        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.1)');
+        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.1)');
+    }
+});
+    </script>
+</body>
+</html>

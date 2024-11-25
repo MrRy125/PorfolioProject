@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCM Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+</head>
+<body class="light-theme">
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">GN</div>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i data-feather="moon"></i>
+            </button>
+            <button class="mobile-menu" aria-label="Menu">
+                <i data-feather="menu"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="#" class="active">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h1 class="section-title animate-in">Get in Touch</h1>
+                <div class="contact-grid">
+                    <div class="contact-info animate-in">
+                        <div class="contact-card">
+                            <h3>Let's Connect</h3>
+                            <div class="contact-details">
+                                <a href="mailto:your.email@example.com" class="contact-item">
+                                    <i data-feather="mail"></i>
+                                    <span>your.email@example.com</span>
+                                </a>
+                                <a href="tel:+1234567890" class="contact-item">
+                                    <i data-feather="phone"></i>
+                                    <span>+1 (234) 567-890</span>
+                                </a>
+                                <a href="#" class="contact-item">
+                                    <i data-feather="map-pin"></i>
+                                    <span>Cagayan de Oro City, Philippines</span>
+                                </a>
+                            </div>
+                            <h3>Social Media</h3>
+                            <div class="social-grid">
+                                <a href="#" class="social-item">
+                                    <i data-feather="linkedin"></i>
+                                    <span>LinkedIn</span>
+                                </a>
+                                <a href="#" class="social-item">
+                                    <i data-feather="github"></i>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="#" class="social-item">
+                                    <i data-feather="instagram"></i>
+                                    <span>Instagram</span>
+                                </a>
+                                <a href="#" class="social-item">
+                                    <i data-feather="behance"></i>
+                                    <span>Behance</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form animate-in">
+                        <div class="success-message">
+                            Message sent successfully! I'll get back to you soon.
+                        </div>
+                        <form id="contactForm" novalidate>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                                <div class="error-message" id="nameError">Please enter your name</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                                <div class="error-message" id="emailError">Please enter a valid email address</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select id="subject" name="subject" class="form-control" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="collaboration">Collaboration Opportunity</option>
+                                    <option value="project">Project Inquiry</option>
+                                    <option value="job">Job Opportunity</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <div class="error-message" id="subjectError">Please select a subject</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea id="message" name="message" class="form-control" required></textarea>
+                                <div class="error-message" id="messageError">Please enter your message</div>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <span>Send Message</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Girl Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Feather Icons
+        feather.replace();
+
+        document.addEventListener('DOMContentLoaded', function () {
+    // Get DOM elements
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    const moonIcon = themeToggle.querySelector('i');
+
+    // Function to set theme
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            moonIcon.setAttribute('data-feather', 'sun');
+        } else {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            moonIcon.setAttribute('data-feather', 'moon');
+        }
+        // Update feather icons
+        feather.replace();
+
+        // Store theme preference
+        localStorage.setItem('theme', theme);
+
+        // Dispatch custom event for theme change
+        const event = new CustomEvent('themeChanged', { detail: { theme: theme } });
+        document.dispatchEvent(event);
+    }
+
+    // Function to get system theme preference
+    function getSystemThemePreference() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // Function to initialize theme
+    function initializeTheme() {
+        // Check localStorage first for the value 'dark'
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme) {
+            // Use saved theme preference
+            setTheme(savedTheme);
+        } else {
+            // Use system preference as default
+            const systemTheme = getSystemThemePreference();
+            setTheme(systemTheme);
+        }
+    }
+
+    // Toggle theme when button is clicked
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Only update if user hasn't set a preference
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // Initialize theme on page load
+    initializeTheme();
+
+    // Optional: Add theme transition class after initial load
+    // This prevents transition flash on page load
+    setTimeout(() => {
+        document.documentElement.classList.add('theme-transition');
+    }, 500);
+});
+
+// CSS Variables Update Function (call this when theme changes)
+document.addEventListener('themeChanged', function (e) {
+    const theme = e.detail.theme;
+    const root = document.documentElement;
+
+    if (theme === 'dark') {
+        root.style.setProperty('--color-background', '#1A1A1A');
+        root.style.setProperty('--color-text', '#FFFFFF');
+        root.style.setProperty('--color-text-light', '#B0B0B0');
+        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.2)');
+        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.3)');
+        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.3)');
+    } else {
+        root.style.setProperty('--color-background', '#F8F9FA');
+        root.style.setProperty('--color-text', '#2D2D2D');
+        root.style.setProperty('--color-text-light', '#6C757D');
+        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.05)');
+        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.1)');
+        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.1)');
+    }
+});
+
+ 
+    </script>
+</body>
+</html>

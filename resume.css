@@ -1,0 +1,254 @@
+/* Resume Page Specific Styles */
+.resume-page {
+    padding-top: 80px;
+}
+
+.resume-header {
+    background-color: var(--color-accent);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.resume-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.resume-title-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.resume-grid {
+    display: grid;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Resume Sections */
+.resume-section {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.resume-section h3 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent);
+}
+
+/* Personal Information */
+.personal-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.profession {
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-light);
+}
+
+/* Timeline Style */
+.timeline-item {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-primary);
+    border-radius: 50%;
+}
+
+.timeline-marker::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    bottom: -100%;
+    width: 2px;
+    background-color: var(--color-accent);
+}
+
+.timeline-content h4 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.institution {
+    color: var(--color-text-light);
+    margin-bottom: 0.25rem;
+}
+
+.date {
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category h4 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.skill-item {
+    margin-bottom: 1rem;
+}
+
+.skill-name {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.skill-bar {
+    height: 8px;
+    background-color: var(--color-accent);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: var(--color-primary);
+    transition: width 1s ease;
+}
+
+/* Project Cards */
+.project-card {
+    background-color: rgba(var(--color-accent-rgb), 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.project-card h4 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.project-date {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+}
+
+/* Certification List */
+.certification-list {
+    list-style: none;
+}
+
+.certification-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.certification-list i {
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.certification-list h4 {
+    margin-bottom: 0.25rem;
+}
+
+.certification-list p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+/* Activity List */
+.activity-list {
+    list-style: none;
+}
+
+.activity-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.activity-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+}
+
+/* Dark Theme Overrides */
+.dark-theme .resume-section {
+    background-color: var(--color-background);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resume-title-section {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .contact-details {
+        flex-direction: column;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-section {
+        padding: 1.5rem;
+    }
+
+    .timeline-item {
+        padding-left: 1.5rem;
+    }
+
+    .certification-list li {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

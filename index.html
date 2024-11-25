@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCM Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+</head>
+<body class="light-theme">
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">GN</div>
+            <button class="theme-toggle" aria-label="Toggle theme">
+                <i data-feather="moon"></i>
+            </button>
+            <button class="mobile-menu" aria-label="Menu">
+                <i data-feather="menu"></i>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#" class="active">About</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="animate-in">
+                            <span class="greeting">Hello, I'm</span>
+                            <span class="name">Girl Name</span>
+                        </h1>
+                        <h2 class="title animate-in">Technology Communication Management Student</h2>
+                        <p class="subtitle animate-in">Transforming complex technical concepts into clear, engaging communications</p>
+                        <div class="cta-buttons animate-in">
+                            <a href="resume.html" class="btn primary">View Resume</a>
+                            <a href="contact.html" class="btn secondary">Get in Touch</a>
+                        </div>
+                    </div>
+                    <div class="hero-image animate-in">
+                        <img src="/images/colet.png" alt="Girl Name" class="profile-image">
+                        <div class="background-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <div class="about-content">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="about-grid">
+                        <div class="about-text">
+                            <p>As a Technology Communication Management student at the University of Science and Technology of Southern Philippines, I blend technical expertise with effective communication strategies. My academic journey focuses on bridging the gap between complex technological concepts and clear, user-friendly information.</p>
+                            <p>I'm passionate about creating meaningful digital experiences and translating technical information into accessible content. My studies have equipped me with both the technical foundation and communication skills needed in today's digital landscape.</p>
+                        </div>
+                        <div class="skills">
+                            <h3>Core Competencies</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Technical Writing</span>
+                                <span class="skill-tag">UI/UX Design</span>
+                                <span class="skill-tag">Content Strategy</span>
+                                <span class="skill-tag">Digital Marketing</span>
+                                <span class="skill-tag">Project Management</span>
+                                <span class="skill-tag">Web Development</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="connect">
+            <div class="container">
+                <h2 class="section-title">Let's Connect</h2>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i data-feather="instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Mail">
+                        <i data-feather="mail"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Girl Name. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        // Theme toggle functionality will be added here
+
+        // Theme Switching Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    const moonIcon = themeToggle.querySelector('i');
+
+    // Function to set theme
+    function setTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.remove('light-theme');
+            body.classList.add('dark-theme');
+            moonIcon.setAttribute('data-feather', 'sun');
+        } else {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            moonIcon.setAttribute('data-feather', 'moon');
+        }
+        // Update feather icons
+        feather.replace();
+        
+        // Store theme preference
+        localStorage.setItem('theme', theme);
+        
+        // Dispatch custom event for theme change
+        const event = new CustomEvent('themeChanged', { detail: { theme: theme } });
+        document.dispatchEvent(event);
+    }
+
+    // Function to get system theme preference
+    function getSystemThemePreference() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    // Function to initialize theme
+    function initializeTheme() {
+        // Check localStorage first
+        const savedTheme = localStorage.getItem('theme');
+        
+        if (savedTheme) {
+            // Use saved theme preference
+            setTheme(savedTheme);
+        } else {
+            // Use system preference as default
+            const systemTheme = getSystemThemePreference();
+            setTheme(systemTheme);
+        }
+    }
+
+    // Toggle theme when button is clicked
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+    });
+
+    // Listen for system theme changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        // Only update if user hasn't set a preference
+        if (!localStorage.getItem('theme')) {
+            setTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+
+    // Initialize theme on page load
+    initializeTheme();
+
+    // Optional: Add theme transition class after initial load
+    // This prevents transition flash on page load
+    setTimeout(() => {
+        document.documentElement.classList.add('theme-transition');
+    }, 500);
+});
+
+// CSS Variables Update Function (call this when theme changes)
+document.addEventListener('themeChanged', function(e) {
+    const theme = e.detail.theme;
+    const root = document.documentElement;
+
+    if (theme === 'dark') {
+        root.style.setProperty('--color-background', '#1A1A1A');
+        root.style.setProperty('--color-text', '#FFFFFF');
+        root.style.setProperty('--color-text-light', '#B0B0B0');
+        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.2)');
+        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.3)');
+        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.3)');
+    } else {
+        root.style.setProperty('--color-background', '#F8F9FA');
+        root.style.setProperty('--color-text', '#2D2D2D');
+        root.style.setProperty('--color-text-light', '#6C757D');
+        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.05)');
+        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.1)');
+        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.1)');
+    }
+});
+    </script>
+</body>
+</html>
