@@ -33,10 +33,20 @@
             <div class="container">
                 <div class="resume-title-section">
                     <h1>Resume</h1>
-                    <a href="#" class="btn primary download-btn">
+                    <a href="#" class="btn primary download-btn" id="openModalBtn">
                         <i data-feather="download"></i>
                         Download PDF
                     </a>
+                
+                    <!-- Modal Box -->
+                    <div class="modal" id="downloadModal">
+                        <div class="modal-content">
+                            <span class="close-btn" id="closeModalBtn">&times;</span>
+                            <h2 style="color: black;">Choose Theme</h2>
+                            <button class="theme-btn dark-theme" id="darkThemeBtn">Dark Theme PDF</button>
+                            <button class="theme-btn light-theme" id="lightThemeBtn">Light Theme PDF</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -68,7 +78,7 @@
 
                     <!-- Professional Summary -->
                     <div class="resume-section summary">
-                        <h3>Professional Summary</h3>
+                        <h3>Summary</h3>
                         <div class="section-content">
                             <p>A dedicated Technology Communication Management student with a passion for bridging the gap between technical concepts and user understanding. Combining strong technical aptitude with excellent communication skills to deliver clear, engaging, and user-focused content.</p>
                         </div>
@@ -76,58 +86,68 @@
 
                     <!-- Education -->
                     <div class="resume-section education">
-                        <h3>Education</h3>
+                        <h3>Education and Certifications</h3>
                         <div class="section-content">
                             <div class="timeline-item">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
                                     <h4>BS in Technology Communication Management</h4>
                                     <p class="institution">University of Science and Technology of Southern Philippines</p>
-                                    <p class="date">2020 - Present</p>
+                                    <p class="date">2023 - Present</p>
                                     <ul class="achievements">
                                         <li>Dean's Lister</li>
                                         <li>Technical Documentation Society Member</li>
                                         <li>Student Council Representative</li>
                                     </ul>
                                 </div>
+
+                                <div class="section-content">
+                                    <ul class="certification-list">
+                                        <li>
+                                            <i data-feather="award" class="icon"></i>
+                                            <div>
+                                                <h4>Technical Writing Certification</h4>
+                                                <p>Google Technical Writing Course, 2023</p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <i data-feather="award" class="icon"></i>
+                                            <div>
+                                                <h4>UX Design Fundamentals</h4>
+                                                <p>Google UX Design Certificate, 2023</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
-                    <!-- Technical Skills -->
+                    <!-- Skills -->
                     <div class="resume-section skills">
-                        <h3>Technical Skills</h3>
                         <div class="section-content">
                             <div class="skills-grid">
                                 <div class="skill-category">
-                                    <h4>Development</h4>
-                                    <div class="skill-item">
-                                        <span class="skill-name">HTML/CSS</span>
-                                        <div class="skill-bar">
-                                            <div class="skill-progress" style="width: 90%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <span class="skill-name">JavaScript</span>
-                                        <div class="skill-bar">
-                                            <div class="skill-progress" style="width: 75%"></div>
-                                        </div>
-                                    </div>
+                                    <h4>Technical Skills</h4>
+                                    <ul class="skill-list">
+                                            <li><span class="skill-name">Microsoft Office Suite</span></li>
+                                            <li><span class="skill-name">Google Workspace</span></li>
+                                            <li><span class="skill-name">Canva</span></li>
+                                            <li><span class="skill-name">Content Creation</span></li>
+                                            <li><span class="skill-name">Graphic Design</span></li>
+                                            <li><span class="skill-name">Social Media Management</span></li>
+                                            <li><span class="skill-name">Data Entry</span></li>
+                                    </ul>
                                 </div>
                                 <div class="skill-category">
-                                    <h4>Design</h4>
-                                    <div class="skill-item">
-                                        <span class="skill-name">Adobe Creative Suite</span>
-                                        <div class="skill-bar">
-                                            <div class="skill-progress" style="width: 85%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="skill-item">
-                                        <span class="skill-name">UI/UX Design</span>
-                                        <div class="skill-bar">
-                                            <div class="skill-progress" style="width: 80%"></div>
-                                        </div>
-                                    </div>
+                                    <h4>Soft Skills</h4>
+                                    <ul class="skill-list">
+                                        <li><span class="skill-name">Excellent verbal and written communication</span></li>
+                                        <li><span class="skill-name">Time management and organizational skills</span></li>
+                                        <li><span class="skill-name">Problem-Solving and adaptability</span></li>
+                                        <li><span class="skill-name">Team collaboration and leadership</span></li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -135,52 +155,61 @@
 
                     <!-- Projects -->
                     <div class="resume-section projects">
-                        <h3>Notable Projects</h3>
+                        <h3>Professional Experience</h3>
                         <div class="section-content">
                             <div class="project-card">
-                                <h4>Technical Documentation Portal</h4>
-                                <p class="project-date">2023</p>
-                                <p>Developed comprehensive documentation system for university's computer laboratory procedures.</p>
+                                <h4>Student Intern</h4>
+                                <p class="project-date">Aug 2023 - Present</p>
                             </div>
-                            <div class="project-card">
-                                <h4>UX Research Study</h4>
-                                <p class="project-date">2023</p>
-                                <p>Conducted user research and created prototype for campus mobile application.</p>
+                            <div class="project-details">
+                                <h5>University of Science and Technology of Southern Phillippines</h5> <br>
+                                <ul>
+                                    <li>Assisted in organizing university events by coordinating with departments and external partners.</li>
+                                    <li>Streamlined communication workflows between students and faculty using technical platforms like Google Workspace</li>
+                                    <li>Supported data entry and reporting for academic programs, ensuring accuracy and timely delivery.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
                     <!-- Certifications -->
                     <div class="resume-section certifications">
-                        <h3>Certifications</h3>
+                        <h3>Community Involvement & Volunteering</h3>
                         <div class="section-content">
-                            <ul class="certification-list">
-                                <li>
-                                    <i data-feather="award"></i>
-                                    <div>
-                                        <h4>Technical Writing Certification</h4>
-                                        <p>Google Technical Writing Course, 2023</p>
-                                    </div>
-                                </li>
-                                <li>
-                                    <i data-feather="award"></i>
-                                    <div>
-                                        <h4>UX Design Fundamentals</h4>
-                                        <p>Google UX Design Certificate, 2023</p>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="project-card">
+                                <h4>Volunteer Media Coordinator</h4>
+                                <p class="project-date">2022 - Present</p>
+                            </div>
+                            <div class="project-details">
+                                <h5>Barangay Youth Council, Misamis Oriental</h5> <br>
+                                <ul>
+                                    <li>Designed promotional materials for local events using Canva.</li>
+                                    <li>Assisted in organizing technology literacy workshops for local youth.</li>
+                                </ul>
+                            </div>
+
+                            <div class="project-card">
+                                <h4>Community Event Organizer</h4>
+                                <p class="project-date">September 2023</p>
+                            </div>
+                            <div class="project-details">
+                                <h5>USTP Environmental Awareness Campaign</h5> <br>
+                                <ul>
+                                    <li>Coordinated team roles and managed event logistics.</li>
+                                    <li>Raised awareness about technology’s role in environmentalsustainability.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Extra-curricular Activities -->
                     <div class="resume-section activities">
-                        <h3>Extra-curricular Activities</h3>
+                        <h3>ACHIEVEMENTS AND AWARDS</h3>
                         <div class="section-content">
                             <ul class="activity-list">
-                                <li>Technical Documentation Society - Vice President</li>
-                                <li>University Student Council - Communications Committee</li>
-                                <li>Tech Conference 2023 - Student Organizer</li>
+                                <li>Dean's Lister: USTP, Semester 1 AY 2023-2024</li>
+                                <li>2nd Place in USTP Infographic Design Contest (October 2023)</li>
+                                <li>Recognized for Outstanding Leadership in High School Student Council</li>
                             </ul>
                         </div>
                     </div>
@@ -197,5 +226,48 @@
 </body>
     <script>
         feather.replace();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const openModalBtn = document.getElementById("openModalBtn");
+            const closeModalBtn = document.getElementById("closeModalBtn");
+            const downloadModal = document.getElementById("downloadModal");
+            const darkThemeBtn = document.getElementById("darkThemeBtn");
+            const lightThemeBtn = document.getElementById("lightThemeBtn");
+
+            // Open modal
+            openModalBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                downloadModal.style.display = "flex";
+            });
+
+            // Close modal
+            closeModalBtn.addEventListener("click", () => {
+                downloadModal.style.display = "none";
+            });
+
+            // Direct download of PDFs
+            darkThemeBtn.addEventListener("click", () => {
+                const link = document.createElement("a");
+                link.href = "files/Dark-Resume.pdf"; // Replace with the actual dark theme PDF file path
+                link.download = "Dark-Resume.pdf"; // Specify the download file name
+                link.click();
+            });
+
+            lightThemeBtn.addEventListener("click", () => {
+                const link = document.createElement("a");
+                link.href = "files/Light-Resume.pdf"; // Replace with the actual light theme PDF file path
+                link.download = "Light-Resume.pdf"; // Specify the download file name
+                link.click();
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener("click", (e) => {
+                if (e.target === downloadModal) {
+                    downloadModal.style.display = "none";
+                }
+            });
+        });
+
+
     </script>
 </html>

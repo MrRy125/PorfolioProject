@@ -15,6 +15,58 @@
     --color-input-bg: #9D4EDD;
 }
 
+.resume-title-section .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.resume-title-section .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.resume-title-section .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #000;
+}
+
+.resume-title-section .theme-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.resume-title-section .dark-theme {
+    background-color: #343a40;
+    color: white;
+}
+
+.resume-title-section .light-theme {
+    background-color: #f8f9fa;
+    color: black;
+}
+
+
+
 .resume-page {
     padding-top: 80px;
 }
@@ -55,6 +107,11 @@
     border-radius: 12px;
     padding: 2rem;
     box-shadow: var(--shadow-sm);
+}
+
+.timeline-item {
+    display: flex;
+    flex-direction: row;
 }
 
 .resume-section h3 {
@@ -144,7 +201,11 @@
 
 .skill-category h4 {
     font-family: 'Poppins', sans-serif;
-    margin-bottom: 1rem;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-accent);
 }
 
 .skill-item {
@@ -155,6 +216,7 @@
     display: block;
     margin-bottom: 0.5rem;
 }
+
 
 .skill-bar {
     height: 8px;
@@ -175,6 +237,9 @@
     padding: 1.5rem;
     border-radius: 8px;
     margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .project-card h4 {
@@ -184,13 +249,27 @@
 
 .project-date {
     font-size: 0.9rem;
-    color: var(--color-text-light);
+    color: var(--color-primary);
     margin-bottom: 0.5rem;
+}
+
+.skill-list {
+    margin-left: 1.7rem;
+}
+
+.section-content .project-details {
+    margin-top: -2.3rem;
+    margin-left: 2.9rem;
+}
+.section-content .project-details h5 {
+    margin-top: -2.3rem;
+    margin-left: -1.4rem;
 }
 
 /* Certification List */
 .certification-list {
     list-style: none;
+    margin-left: 10%;
 }
 
 .certification-list li {
@@ -200,13 +279,14 @@
     margin-bottom: 1.5rem;
 }
 
-.certification-list i {
+.certification-list .icon {
     color: var(--color-primary);
     flex-shrink: 0;
 }
 
 .certification-list h4 {
     margin-bottom: 0.25rem;
+    color: var(--color-primary);
 }
 
 .certification-list p {

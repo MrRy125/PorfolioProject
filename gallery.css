@@ -35,7 +35,7 @@
 .gallery-description {
     max-width: 600px;
     margin: 0 auto;
-    color: var(--color-text);
+    color: var(--color-secondary);
 }
 
 /* Filter Buttons */

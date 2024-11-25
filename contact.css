@@ -65,7 +65,7 @@
 }
 
 .contact-card h3 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Times New Roman', serif;
     font-size: 1.5rem;
     color: var(--color-primary);
     margin-bottom: 1.5rem;
@@ -145,6 +145,13 @@
     border-radius: 12px;
     box-shadow: var(--shadow-md);
     border: 3px solid var(--color-border);
+}
+
+.contact-form h3 {
+    font-family: 'Times New Roman', serif;
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
 }
 
 .form-group {
