@@ -3,17 +3,7 @@
     --color-primary: #7B2CBF;
     --color-secondary: #9D4EDD;
     --color-accent: #E0AAFF;
-    --color-background: #F8F9FA;
-    --color-text: #2D2D2D;
-    --color-text-light: #6C757D;
-    --color-white: #FFFFFF;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Dark Theme Variables */
-[class="dark-theme"] {
+    --color-background: #1A1A1A;
     --color-background: #1A1A1A;
     --color-text: #FFFFFF;
     --color-text-light: #B0B0B0;
@@ -143,11 +133,13 @@ body {
     object-fit: cover;
     position: relative;
     z-index: 1;
+    top: 12px;
+    left: 55px
 }
 
 .background-shape {
     position: absolute;
-    top: -10%;
+    top: 1%;
     right: -10%;
     width: 100%;
     height: 100%;

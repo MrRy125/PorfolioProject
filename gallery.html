@@ -15,10 +15,7 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">GN</div>
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <i data-feather="moon"></i>
-            </button>
+            <div class="logo">AM</div>
             <button class="mobile-menu" aria-label="Menu">
                 <i data-feather="menu"></i>
             </button>
@@ -34,8 +31,8 @@
     <main class="gallery-page">
         <section class="gallery-header">
             <div class="container">
-                <h1>Project Gallery</h1>
-                <p class="gallery-description">A showcase of my work in technical communication, UI/UX design, and digital content creation.</p>
+                <h1>Photo Gallery</h1>
+                <p class="gallery-description">Here is my personal photo gallery, capturing moments and memories as a BS TCM student at USTP College. These photos reflect my journey, experiences, and the people who have been part of this chapter in my life.</p>
             </div>
         </section>
 
@@ -145,163 +142,12 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Girl Name. All rights reserved.</p>
+            <p>&copy; 2024 Azumi C. Maglinte. All rights reserved.</p>
         </div>
     </footer>
 
+</body>
     <script>
         feather.replace();
-
-        // Project data
-        const projectData = {
-            project1: {
-                title: "Campus Mobile App",
-                category: "UI/UX Design",
-                description: "A comprehensive mobile application designed to enhance student experience on campus. Features include course scheduling, campus navigation, and event notifications.",
-                tools: ["Figma", "Adobe XD", "Protopie"],
-                duration: "3 months",
-                role: "Lead UI/UX Designer",
-                images: ["/api/placeholder/800/600", "/api/placeholder/800/600"]
-            },
-            // Add more project data as needed
-        };
-
-        // Filter functionality
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                const filter = button.dataset.filter;
-                
-                // Update active button
-                document.querySelector('.filter-btn.active').classList.remove('active');
-                button.classList.add('active');
-                
-                // Filter items
-                document.querySelectorAll('.gallery-item').forEach(item => {
-                    if (filter === 'all' || item.classList.contains(filter)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Modal functionality
-        document.querySelectorAll('.view-project').forEach(button => {
-            button.addEventListener('click', () => {
-                const projectId = button.dataset.project;
-                const project = projectData[projectId];
-                
-                if (project) {
-                    const modal = document.getElementById('projectModal');
-                    modal.classList.add('active');
-                    // Populate modal content
-                }
-            });
-        });
-
-        // Close modal
-        document.querySelector('.close-modal').addEventListener('click', () => {
-            document.getElementById('projectModal').classList.remove('active');
-        });
-
-
-
-        // Theme Switching Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const themeToggle = document.querySelector('.theme-toggle');
-    const body = document.body;
-    const moonIcon = themeToggle.querySelector('i');
-
-    // Function to set theme
-    function setTheme(theme) {
-        if (theme === 'dark') {
-            body.classList.remove('light-theme');
-            body.classList.add('dark-theme');
-            moonIcon.setAttribute('data-feather', 'sun');
-        } else {
-            body.classList.remove('dark-theme');
-            body.classList.add('light-theme');
-            moonIcon.setAttribute('data-feather', 'moon');
-        }
-        // Update feather icons
-        feather.replace();
-        
-        // Store theme preference
-        localStorage.setItem('theme', theme);
-        
-        // Dispatch custom event for theme change
-        const event = new CustomEvent('themeChanged', { detail: { theme: theme } });
-        document.dispatchEvent(event);
-    }
-
-    // Function to get system theme preference
-    function getSystemThemePreference() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-
-    // Function to initialize theme
-    function initializeTheme() {
-        // Check localStorage first
-        const savedTheme = localStorage.getItem('theme');
-        
-        if (savedTheme) {
-            // Use saved theme preference
-            setTheme(savedTheme);
-        } else {
-            // Use system preference as default
-            const systemTheme = getSystemThemePreference();
-            setTheme(systemTheme);
-        }
-    }
-
-    // Toggle theme when button is clicked
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-    });
-
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        // Only update if user hasn't set a preference
-        if (!localStorage.getItem('theme')) {
-            setTheme(e.matches ? 'dark' : 'light');
-        }
-    });
-
-    // Initialize theme on page load
-    initializeTheme();
-
-    // Optional: Add theme transition class after initial load
-    // This prevents transition flash on page load
-    setTimeout(() => {
-        document.documentElement.classList.add('theme-transition');
-    }, 500);
-});
-
-// CSS Variables Update Function (call this when theme changes)
-document.addEventListener('themeChanged', function(e) {
-    const theme = e.detail.theme;
-    const root = document.documentElement;
-
-    if (theme === 'dark') {
-        root.style.setProperty('--color-background', '#1A1A1A');
-        root.style.setProperty('--color-text', '#FFFFFF');
-        root.style.setProperty('--color-text-light', '#B0B0B0');
-        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.2)');
-        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.3)');
-        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.3)');
-    } else {
-        root.style.setProperty('--color-background', '#F8F9FA');
-        root.style.setProperty('--color-text', '#2D2D2D');
-        root.style.setProperty('--color-text-light', '#6C757D');
-        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.05)');
-        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.1)');
-        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.1)');
-    }
-});
     </script>
-</body>
 </html>

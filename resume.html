@@ -15,10 +15,7 @@
     <!-- Navigation Bar (Same as Home Page) -->
     <nav class="navbar">
         <div class="nav-content">
-            <div class="logo">GN</div>
-            <button class="theme-toggle" aria-label="Toggle theme">
-                <i data-feather="moon"></i>
-            </button>
+            <div class="logo">AM</div>
             <button class="mobile-menu" aria-label="Menu">
                 <i data-feather="menu"></i>
             </button>
@@ -50,20 +47,20 @@
                     <!-- Personal Information -->
                     <div class="resume-section personal-info">
                         <div class="section-content">
-                            <h2>Girl Name</h2>
+                            <h2>Azumi C. Maglinte</h2>
                             <p class="profession">Technology Communication Management Student</p>
                             <div class="contact-details">
                                 <div class="contact-item">
                                     <i data-feather="mail"></i>
-                                    <span>email@example.com</span>
+                                    <span>azumicablindamaglinte@gmail.com</span>
                                 </div>
                                 <div class="contact-item">
                                     <i data-feather="phone"></i>
-                                    <span>+63 XXX XXX XXXX</span>
+                                    <span>+63 936 7953 136</span>
                                 </div>
                                 <div class="contact-item">
                                     <i data-feather="map-pin"></i>
-                                    <span>City, Philippines</span>
+                                    <span>Purok 2, Poblacion 3, Villanueva Misamis Oriental</span>
                                 </div>
                             </div>
                         </div>
@@ -194,109 +191,11 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Girl Name. All rights reserved.</p>
+            <p>&copy; 2024 Azumi C. Maglinte. All rights reserved.</p>
         </div>
     </footer>
-
+</body>
     <script>
         feather.replace();
-        // Theme toggle functionality will be added here
-
-        // Theme Switching Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Get DOM elements
-    const themeToggle = document.querySelector('.theme-toggle');
-    const body = document.body;
-    const moonIcon = themeToggle.querySelector('i');
-
-    // Function to set theme
-    function setTheme(theme) {
-        if (theme === 'dark') {
-            body.classList.remove('light-theme');
-            body.classList.add('dark-theme');
-            moonIcon.setAttribute('data-feather', 'sun');
-        } else {
-            body.classList.remove('dark-theme');
-            body.classList.add('light-theme');
-            moonIcon.setAttribute('data-feather', 'moon');
-        }
-        // Update feather icons
-        feather.replace();
-        
-        // Store theme preference
-        localStorage.setItem('theme', theme);
-        
-        // Dispatch custom event for theme change
-        const event = new CustomEvent('themeChanged', { detail: { theme: theme } });
-        document.dispatchEvent(event);
-    }
-
-    // Function to get system theme preference
-    function getSystemThemePreference() {
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-    }
-
-    // Function to initialize theme
-    function initializeTheme() {
-        // Check localStorage first
-        const savedTheme = localStorage.getItem('theme');
-        
-        if (savedTheme) {
-            // Use saved theme preference
-            setTheme(savedTheme);
-        } else {
-            // Use system preference as default
-            const systemTheme = getSystemThemePreference();
-            setTheme(systemTheme);
-        }
-    }
-
-    // Toggle theme when button is clicked
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-    });
-
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        // Only update if user hasn't set a preference
-        if (!localStorage.getItem('theme')) {
-            setTheme(e.matches ? 'dark' : 'light');
-        }
-    });
-
-    // Initialize theme on page load
-    initializeTheme();
-
-    // Optional: Add theme transition class after initial load
-    // This prevents transition flash on page load
-    setTimeout(() => {
-        document.documentElement.classList.add('theme-transition');
-    }, 500);
-});
-
-// CSS Variables Update Function (call this when theme changes)
-document.addEventListener('themeChanged', function(e) {
-    const theme = e.detail.theme;
-    const root = document.documentElement;
-
-    if (theme === 'dark') {
-        root.style.setProperty('--color-background', '#1A1A1A');
-        root.style.setProperty('--color-text', '#FFFFFF');
-        root.style.setProperty('--color-text-light', '#B0B0B0');
-        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.2)');
-        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.3)');
-        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.3)');
-    } else {
-        root.style.setProperty('--color-background', '#F8F9FA');
-        root.style.setProperty('--color-text', '#2D2D2D');
-        root.style.setProperty('--color-text-light', '#6C757D');
-        root.style.setProperty('--shadow-sm', '0 2px 4px rgba(0, 0, 0, 0.05)');
-        root.style.setProperty('--shadow-md', '0 4px 6px rgba(0, 0, 0, 0.1)');
-        root.style.setProperty('--shadow-lg', '0 10px 15px rgba(0, 0, 0, 0.1)');
-    }
-});
     </script>
-</body>
 </html>
